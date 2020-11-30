@@ -22,7 +22,14 @@ if platform.system() == "Darwin":
     browser = webdriver.Chrome(cur_dir / "chromedriver_86")
 else:
     print("pi")
-    browser = webdriver.Chrome(cur_dir / "chromedriver_84")
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+
+    browser = webdriver.Chrome(
+        "/usr/lib/chromium-browser/chromedriver", options=options
+    )
 
 
 browser.implicitly_wait(100)
