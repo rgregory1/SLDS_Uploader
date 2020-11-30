@@ -3,10 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import pathlib
-import psutil
 
 import credentials
-import sys
+import platform
 
 # from PS_Enroll_processor import fix_entry_codes
 
@@ -18,15 +17,12 @@ one_up = pathlib.Path(__file__).resolve().parents[1]
 
 blanks = pathlib.Path.cwd() / "blank_files"
 
-if platform.system() == 'Darwin'
-    print('maccado')
-
-if psutil.MACOS:
+if platform.system() == "Darwin":
     print("mac")
-    browser = webdriver.Chrome("/Users/rgregory/Desktop/SLDS_Uploader/chromedriver_86")
+    browser = webdriver.Chrome(cur_dir / "chromedriver_86")
 else:
     print("pi")
-    browser = webdriver.Chrome("/Users/rgregory/Desktop/SLDS_Uploader/chromedriver_84")
+    browser = webdriver.Chrome(cur_dir / "chromedriver_84")
 
 
 browser.implicitly_wait(100)
