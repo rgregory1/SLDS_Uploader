@@ -6,10 +6,13 @@ import pathlib
 
 import credentials
 import platform
+import datetime
 
-# from PS_Enroll_processor import fix_entry_codes
 
-# import web_pdb
+# get timestamp for log
+temp_timestamp = str(datetime.datetime.now())
+print(2 * "\n")
+print(temp_timestamp)
 
 
 cur_dir = pathlib.Path.cwd()
@@ -17,6 +20,8 @@ one_up = pathlib.Path(__file__).resolve().parents[1]
 
 blanks = pathlib.Path.cwd() / "blank_files"
 
+# choose correct chromedrier
+print("\nchromedriver for:")
 if platform.system() == "Darwin":
     print("mac")
     browser = webdriver.Chrome(cur_dir / "chromedriver_86")
@@ -83,7 +88,8 @@ def slds_file_upload(cycles, file_list, dir_info):
             file_path = str(dir_info / file)
             file_upload_string = file_upload_string + file_path + " \n "
 
-        print(file_upload_string)
+        print(f"uploading set of blank files {index}")
+        # print(file_upload_string)
         # trim final new line character from string
         file_upload_string = file_upload_string[:-3]
 
@@ -115,6 +121,7 @@ def slds_file_upload(cycles, file_list, dir_info):
         # click schedule now button
         browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
         time.sleep(10)
+        print("scheduled")
 
 
 # old_student_file_list = ["03_0_Student_Identity.csv","03_4_PS_Enroll.csv","03_5_PS_GradeProg.csv"]
