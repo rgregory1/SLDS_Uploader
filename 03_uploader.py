@@ -16,6 +16,7 @@ print(temp_timestamp)
 
 
 cur_dir = pathlib.Path.cwd()
+print(cur_dir)
 one_up = pathlib.Path(__file__).resolve().parents[1]
 
 blanks = pathlib.Path.cwd() / "blank_files"
