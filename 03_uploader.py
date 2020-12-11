@@ -25,7 +25,11 @@ blanks = pathlib.Path.cwd() / "blank_files"
 print("\nchromedriver for:")
 if platform.system() == "Darwin":
     print("mac")
-    browser = webdriver.Chrome(cur_dir / "chromedriver_86")
+    # browser = webdriver.Chrome(cur_dir / "chromedriver_86")
+    chromedriver = cur_dir / "chromedriver_86"
+    options = webdriver.ChromeOptions()
+    options.add_argument("--no-sandbox")
+    browser = webdriver.Chrome(options=options, executable_path=chromedriver)
 else:
     print("pi")
     options = webdriver.ChromeOptions()
