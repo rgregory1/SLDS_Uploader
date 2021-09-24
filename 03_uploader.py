@@ -106,27 +106,43 @@ def slds_file_upload(cycles, file_list, dir_info):
 
         # click upload button
         browser.find_element_by_id("ctl00_MainContent_imgbtnUpload").click()
-        time.sleep(3)
+        time.sleep(5)
 
-        # choose collection
-        collection_choice = browser.find_element_by_id(
-            "ctl00_MainContent_ddlCollections"
-        ).click()
+        # # choose collection
+        # collection_choice = browser.find_element_by_id(
+        #     "ctl00_MainContent_ddlCollections"
+        # ).click()
 
-        time.sleep(2)
-        browser.find_element_by_css_selector(
-            ".rddlItem[title='2021 - DC#03_NightlyCollection_Unofficial']"
-        ).click()
-        time.sleep(3)
+        # time.sleep(2)
+        # browser.find_element_by_css_selector(
+        #     ".rddlItem[title='2021 - DC#03_NightlyCollection_Unofficial']"
+        # ).click()
+        # time.sleep(3)
 
-        # click upload button AGAIN
-        browser.find_element_by_id("ctl00_MainContent_imgbtnUpload").click()
-        time.sleep(10)
+        # # click upload button AGAIN
+        # browser.find_element_by_id("ctl00_MainContent_imgbtnUpload").click()
+        # time.sleep(10)
 
-        # click schedule now button
-        browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
-        time.sleep(10)
+        # # click schedule now button
+        # # browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
+        # browser.find_element_by_id(
+        #     "ctl00_MainContent_rbScheduleNow_ClientState"
+        # ).click()
+        # time.sleep(10)
+        # print("scheduled")
+
+        # # click schedule now button
+        # # browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
+        # browser.find_element_by_id(
+        #     "ctl00_MainContent_rbScheduleNow_ClientState"
+        # ).click()
+        # time.sleep(10)
+        # print("scheduled")
+
+        js = "document.getElementById('ctl00_MainContent_rbScheduleNow_input').click()"
+        browser.execute_script(js)
         print("scheduled")
+        time.sleep(10)
 
 
 # old_student_file_list = ["03_0_Student_Identity.csv","03_4_PS_Enroll.csv","03_5_PS_GradeProg.csv"]
