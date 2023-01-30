@@ -48,21 +48,21 @@ time.sleep(1)
 
 
 # log in
-username = browser.find_element_by_id("txtUserName")
+username = browser.find_element("id", "txtUserName")
 username.send_keys(credentials.my_username)
-password = browser.find_element_by_id("txtAcceptId")
+password = browser.find_element("id", "txtAcceptId")
 password.send_keys(credentials.my_password)
 
-signin_btn = browser.find_element_by_id("login1")
+signin_btn = browser.find_element("id", "login1")
 signin_btn.click()
 
 # hover and click on menu item below
 action = ActionChains(browser)
 time.sleep(3)
-firstLevelMenu = browser.find_element_by_link_text("Integrate")
+firstLevelMenu = browser.find_element("link text", "Integrate")
 time.sleep(3)
 action.move_to_element(firstLevelMenu).perform()
-secondLevelMenu = browser.find_element_by_link_text("Submission Upload")
+secondLevelMenu = browser.find_element("link text", "Submission Upload")
 action.move_to_element(secondLevelMenu).perform()
 
 secondLevelMenu.click()
@@ -80,10 +80,10 @@ def slds_file_upload(cycles, file_list, dir_info):
     for index in range(cycles):
 
         # drop down box to choose submission type
-        domain_dropdown = browser.find_element_by_id("ctl00_MainContent_ddlFileType")
+        domain_dropdown = browser.find_element("id", "ctl00_MainContent_ddlFileType")
         domain_dropdown.click()
         time.sleep(2)
-        browser.find_element_by_css_selector(".rddlItem[title='Submission']").click()
+        browser.find_element("css selector", ".rddlItem[title='Submission']").click()
         time.sleep(3)
 
         # upload set of blank student files
@@ -99,17 +99,17 @@ def slds_file_upload(cycles, file_list, dir_info):
         file_upload_string = file_upload_string[:-3]
 
         # send files to choose file button
-        browser.find_element_by_id("ctl00_MainContent_rdFileUploadfile0").send_keys(
+        browser.find_element("id", "ctl00_MainContent_rdFileUploadfile0").send_keys(
             file_upload_string
         )
         time.sleep(3)
 
         # click upload button
-        browser.find_element_by_id("ctl00_MainContent_imgbtnUpload").click()
+        browser.find_element("id", "ctl00_MainContent_imgbtnUpload").click()
         time.sleep(5)
 
         # # choose collection
-        # collection_choice = browser.find_element_by_id(
+        # collection_choice = browser.find_element("id",
         #     "ctl00_MainContent_ddlCollections"
         # ).click()
 
@@ -120,20 +120,20 @@ def slds_file_upload(cycles, file_list, dir_info):
         # time.sleep(3)
 
         # # click upload button AGAIN
-        # browser.find_element_by_id("ctl00_MainContent_imgbtnUpload").click()
+        # browser.find_element("id", "ctl00_MainContent_imgbtnUpload").click()
         # time.sleep(10)
 
         # # click schedule now button
-        # # browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
-        # browser.find_element_by_id(
+        # # browser.find_element("id", "ctl00_MainContent_rbScheduleNow_input").click()
+        # browser.find_element("id",
         #     "ctl00_MainContent_rbScheduleNow_ClientState"
         # ).click()
         # time.sleep(10)
         # print("scheduled")
 
         # # click schedule now button
-        # # browser.find_element_by_id("ctl00_MainContent_rbScheduleNow_input").click()
-        # browser.find_element_by_id(
+        # # browser.find_element("id", "ctl00_MainContent_rbScheduleNow_input").click()
+        # browser.find_element("id",
         #     "ctl00_MainContent_rbScheduleNow_ClientState"
         # ).click()
         # time.sleep(10)
