@@ -108,6 +108,7 @@ def slds_file_upload(cycles, file_list, dir_info):
         browser.find_element("id", "ctl00_MainContent_imgbtnUpload").click()
         time.sleep(5)
 
+        # can likely remove these
         # # choose collection
         # collection_choice = browser.find_element("id",
         #     "ctl00_MainContent_ddlCollections"
