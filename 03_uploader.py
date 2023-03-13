@@ -1,6 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
 import time
 import pathlib
 
@@ -26,10 +30,11 @@ print("\nchromedriver for:")
 if platform.system() == "Darwin":
     print("mac")
     # browser = webdriver.Chrome(cur_dir / "chromedriver_86")
-    chromedriver = cur_dir / "chromedriver"
-    options = webdriver.ChromeOptions()
-    options.add_argument("--no-sandbox")
-    browser = webdriver.Chrome(options=options, executable_path=chromedriver)
+    # chromedriver = cur_dir / "chromedriver"
+    # options = webdriver.ChromeOptions()
+    # options.add_argument("--no-sandbox")
+    # browser = webdriver.Chrome(options=options, executable_path=chromedriver)
+    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 else:
     print("pi")
     options = webdriver.ChromeOptions()
